@@ -1,5 +1,8 @@
 import express from "express";
+import { configDotenv } from "dotenv";
 import studentRouter from "./routes/studentRoutes.js";
+
+configDotenv();
 
 const app = express();
 

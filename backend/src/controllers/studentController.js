@@ -13,9 +13,8 @@ const getSingleStudent = (req, res) => {};
 // @desc:  create a student
 // @route: POST /api/v1/students
 const createStudent = (req, res) => {
-  const { fullname, studentId, email, password, confirmPassword } = req.body;
-
-  
+  const { fullname, studentId, email, password, confirmPassword, gender } =
+    req.body;
 };
 
 // @desc:  update a student
