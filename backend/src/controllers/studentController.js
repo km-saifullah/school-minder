@@ -1,4 +1,5 @@
 import Student from "../models/studentModel.js";
+import infoChecking from "../utils/infoChecking.js";
 
 // @desc:  show all students
 // @route: GET /api/v1/students
@@ -19,16 +20,7 @@ const createStudent = async (req, res) => {
     req.body;
 
   // required field checking
-  if (
-    [fullName, studentId, email, password, confirmPassword].some(
-      (field) => field?.trim() === ""
-    )
-  ) {
-    return res.status(400).json({
-      status: "failed",
-      message: "You need to include all required",
-    });
-  }
+  infoChecking(fullName, studentId, email, password, confirmPassword, res);
 
   try {
     const student = await Student.create({
@@ -41,7 +33,7 @@ const createStudent = async (req, res) => {
     });
     return res
       .status(201)
-      .send({ status: "success", message: "user created", data: student });
+      .json({ status: "success", message: "user created", data: student });
   } catch (error) {
     return res.status(400).json({
       status: "failed",
