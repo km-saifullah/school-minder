@@ -5,19 +5,23 @@ import infoChecking from '../utils/infoChecking.js'
 // @route: GET /api/v1/students
 const getAllStudents = async (req, res) => {
   let students = await Student.find()
-  return res
-    .status(200)
-    .json({
-      status: 'success',
-      results: students.length,
-      message: 'All students',
-      data: students,
-    })
+  return res.status(200).json({
+    status: 'success',
+    results: students.length,
+    message: 'All students',
+    data: students,
+  })
 }
 
 // @desc:  get a single student
 // @route: GET /api/v1/students/:id
-const getSingleStudent = (req, res) => {}
+const getSingleStudent = async (req, res) => {
+  const { id } = req.params
+  let student = await Student.findById(id)
+  return res
+    .status(200)
+    .json({ status: 'success', message: 'User found!', data: student })
+}
 
 // @desc:  create a student
 // @route: POST /api/v1/students
