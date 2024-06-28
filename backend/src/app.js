@@ -1,11 +1,11 @@
-import express from "express";
-import studentRouter from "./routes/studentRoutes.js";
+import express from 'express'
+import studentRouter from './routes/studentRoutes.js'
 
-const app = express();
+const app = express()
 
-app.use(express.json());
+app.use(express.json())
 
 // routes
-app.use("/api/v1/students/", studentRouter);
+app.use('/api/v1/students', studentRouter)
 
-export default app;
+export default app

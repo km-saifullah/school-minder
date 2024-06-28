@@ -1,13 +1,12 @@
 const infoChecking = (
   fullName,
-  studentId,
   email,
   password,
   confirmPassword,
   res
 ) => {
   if (
-    [fullName, studentId, email, password, confirmPassword].some(
+    [fullName, email, password, confirmPassword].some(
       (field) => field?.trim() === ""
     )
   ) {

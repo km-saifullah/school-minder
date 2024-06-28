@@ -1,13 +1,9 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema } from 'mongoose'
 
 const studentSchema = new Schema({
   fullName: {
     type: String,
     trim: true,
-    required: true,
-  },
-  studentId: {
-    type: String,
     required: true,
   },
   email: {
@@ -29,8 +25,8 @@ const studentSchema = new Schema({
     type: String,
   },
   createdAt: { type: Date, default: Date.now },
-});
+})
 
-const Student = mongoose.model("Student", studentSchema);
+const Student = mongoose.model('Student', studentSchema)
 
-export default Student;
+export default Student

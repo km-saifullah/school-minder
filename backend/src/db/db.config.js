@@ -1,18 +1,18 @@
-import mongoose from "mongoose";
-import { configDotenv } from "dotenv";
+import mongoose from 'mongoose'
+import { configDotenv } from 'dotenv'
 
 // configure dotenv
-configDotenv();
+configDotenv()
 
-const DB_URI = process.env.DATABASE_URI;
+const DB_URI = process.env.DATABASE_URI
 
 const connectDb = async () => {
   try {
-    await mongoose.connect(DB_URI);
-    console.log("DB Connected....!");
+    await mongoose.connect(DB_URI)
+    console.log('DB Connected....!')
   } catch (error) {
-    console.log(error.message);
+    console.log(error.message)
   }
-};
+}
 
-export default connectDb;
+export default connectDb
