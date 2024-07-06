@@ -5,7 +5,8 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "dev": "node --watch ./src/server.js"
+    "dev": "node --watch ./src/server.js",
+    "start": "node ./src/server.js"
   },
   "author": "Khaled Md Saifullah",
   "license": "ISC",

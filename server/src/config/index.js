@@ -1,6 +1,6 @@
 import { configDotenv } from 'dotenv'
 
-configDotenv() // config dotenv
+configDotenv()
 
 const port = process.env.PORT || 8000
 const hostname = '127.0.0.1'

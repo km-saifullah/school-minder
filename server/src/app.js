@@ -1,6 +1,7 @@
 import express from 'express'
 import { rateLimit } from 'express-rate-limit'
 import morgan from 'morgan'
+import adminRouter from './routes/adminRoutes.js'
 import studentRouter from './routes/studentRoutes.js'
 
 const app = express()
@@ -16,6 +17,9 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(limiter)
+
+// admin routes
+app.use('/api/v1/admins', adminRouter)
 
 // routes
 app.use('/api/v1/students', studentRouter)
