@@ -1,4 +1,5 @@
 import mongoose, { Schema } from 'mongoose'
+import bcrypt from 'bcrypt'
 
 const adminSchema = new Schema(
   {
@@ -15,6 +16,7 @@ const adminSchema = new Schema(
     password: {
       type: String,
       require: [true, 'Please enter a valid password'],
+      set: (value) => bcrypt.hashSync(value, 10),
     },
     image: {
       type: String,

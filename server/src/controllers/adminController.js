@@ -14,9 +14,12 @@ const createAdmin = async (req, res) => {
         email,
         password,
       })
+
+      const newAdmin = await Admin.findById(admin._id).select('-password')
+
       return res
         .status(201)
-        .json({ status: 'success', message: 'admin created', data: admin })
+        .json({ status: 'success', message: 'admin created', data: newAdmin })
     }
   } catch (error) {
     return res.status(500).json({
