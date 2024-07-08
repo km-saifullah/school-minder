@@ -26,10 +26,10 @@ const getSingleStudent = async (req, res) => {
 // @desc:  create a student
 // @route: POST /api/v1/students
 const createStudent = async (req, res) => {
-  const { fullName, email, password, confirmPassword, gender } = req.body
+  const { fullName, email, password, gender } = req.body
 
   // required field checking
-  infoChecking(fullName, email, password, confirmPassword, res)
+  infoChecking(fullName, email, password, res)
 
   try {
     const student = await Student.create({

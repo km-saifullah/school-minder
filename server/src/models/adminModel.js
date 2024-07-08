@@ -4,21 +4,17 @@ const adminSchema = new Schema(
   {
     fullname: {
       type: String,
-      required: true,
+      required: [true, 'You need to provide your fullname'],
     },
     email: {
       type: String,
-      require: true,
+      require: [true, 'Please enter your email'],
       unique: true,
       trim: true,
     },
     password: {
       type: String,
-      require: true,
-    },
-    confirmPassword: {
-      type: String,
-      require: true,
+      require: [true, 'Please enter a valid password'],
     },
     image: {
       type: String,

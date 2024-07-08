@@ -1,20 +1,10 @@
-const infoChecking = (
-  fullName,
-  email,
-  password,
-  confirmPassword,
-  res
-) => {
-  if (
-    [fullName, email, password, confirmPassword].some(
-      (field) => field?.trim() === ""
-    )
-  ) {
+const infoChecking = (fullName, email, password, res) => {
+  if ([fullName, email, password].some((field) => field?.trim() === '')) {
     return res.status(400).json({
-      status: "failed",
-      message: "You need to include all required",
-    });
+      status: 'failed',
+      message: 'Please include all required',
+    })
   }
-};
+}
 
-export default infoChecking;
+export default infoChecking

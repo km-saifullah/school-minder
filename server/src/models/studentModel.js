@@ -17,10 +17,6 @@ const studentSchema = new Schema({
     type: String,
     required: true,
   },
-  confirmPassword: {
-    type: String,
-    required: true,
-  },
   gender: {
     type: String,
   },
