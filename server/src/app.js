@@ -21,7 +21,7 @@ app.use(limiter)
 // admin routes
 app.use('/api/v1/admins', adminRouter)
 
-// routes
+// student routes
 app.use('/api/v1/students', studentRouter)
 
 export default app

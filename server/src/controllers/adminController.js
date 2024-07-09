@@ -30,4 +30,23 @@ const createAdmin = async (req, res) => {
   }
 }
 
-export { createAdmin }
+// @desc:  get all admin
+// @route: GET /api/v1/admins
+const getAllAdmins = async (req, res) => {
+  try {
+    const admins = await Admin.find().select('-password')
+
+    return res.status(200).json({
+      status: 'success',
+      results: admins.length,
+      message: 'all admins information',
+      data: admins,
+    })
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ status: 'fail', message: 'Internal Server Error' })
+  }
+}
+
+export { createAdmin, getAllAdmins }
