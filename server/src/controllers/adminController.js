@@ -49,4 +49,24 @@ const getAllAdmins = async (req, res) => {
   }
 }
 
-export { createAdmin, getAllAdmins }
+// @desc:  get admin by id
+// @route: GET /api/v1/admins/:id
+const getAdminById = async (req, res) => {
+  try {
+    const id = req.params.id
+
+    const admin = await Admin.findById(id).select('-password')
+
+    if (admin) {
+      return res
+        .status(200)
+        .json({ status: 'success', message: 'user found', data: admin })
+    }
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ status: 'fail', message: 'Internal Server Error' })
+  }
+}
+
+export { createAdmin, getAllAdmins, getAdminById }
